@@ -177,6 +177,9 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
 
   @override
   Widget build(BuildContext context) {
+    // quick fix for bottomsheet being at the top of the screen in the first frame.
+    _positionOffset ??= MediaQuery.of(context).size.height - widget.persistentContentHeight;
+    
     WidgetsBinding.instance
         .addPostFrameCallback((_) => _afterUpdateWidgetBuild(false));
     return Column(
