@@ -172,7 +172,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
     );
     _controller.addStatusListener(_handleAnimationStatusUpdate);
     WidgetsBinding.instance
-        .addPostFrameCallback((_) => _afterUpdateWidgetBuild(true));
+        ?.addPostFrameCallback((_) => _afterUpdateWidgetBuild(true));
   }
 
   @override
@@ -181,7 +181,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
     _positionOffset ??= MediaQuery.of(context).size.height - widget.persistentContentHeight;
     
     WidgetsBinding.instance
-        .addPostFrameCallback((_) => _afterUpdateWidgetBuild(false));
+        ?.addPostFrameCallback((_) => _afterUpdateWidgetBuild(false));
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
